@@ -4,7 +4,10 @@ import {
   Form,
   FormItem,
   Input,
-  Message
+  Message,
+  Container,
+  Header,
+  Aside,
 } from 'element-ui'
 
 Vue.use(Button)
@@ -12,6 +15,10 @@ Vue.use(Button)
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Input)
+// 布局容器
+Vue.use(Container)
+Vue.use(Header)
+Vue.use(Aside)
 
 
 Vue.prototype.$msg = Message
