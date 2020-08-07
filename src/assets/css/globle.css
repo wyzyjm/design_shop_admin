@@ -1,44 +1,8 @@
-html,
+/* html,
 body,
 #app {
     margin: 0;
     padding: 0;
     height: 100%;
     min-width: 1200px;
-}
-
-.el-breadcrumb {
-    margin-bottom: 15px;
-}
-
-.el-card {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .15) !important;
-}
-
-.el-table {
-    margin: 15px 0;
-    font-size: 12px;
-}
-
-/* 解决表格头部错乱问题 */
-.el-table th.gutter {
-    display: table-cell !important;
-}
-
-.el-table colgroup.gutter {
-    display: table-cell !important;
-}
-
-/* 步骤条 */
-.el-steps {
-    margin: 15px 0;
-}
-
-.el-step__title {
-    font-size: 12px;
-}
-
-/* 编辑器 */
-.ql-editor {
-    min-height: 300px;
-}
+} */

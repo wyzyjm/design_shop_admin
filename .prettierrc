@@ -1,0 +1,4 @@
+{
+  "semi":false, // 末尾加分号
+  "singleQuote":true // 单引号
+}
