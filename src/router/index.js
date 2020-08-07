@@ -1,32 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+// 路由
+import routes from './routes.js'
 
 Vue.use(VueRouter)
-
-const routes = [
-  // 检测其它路径
-  {
-    path: '/',
-    redirect: '/login'
-  },
-  // 登录
-  {
-    path: '/login',
-    component: () => import('@/views/Login/index.vue'),
-  },
-  // home主页
-  {
-    path: '/home',
-    component: () => import('@/views/Home/index.vue'),
-  }
-]
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
 
+// 路由守卫
 router.beforeEach((to, from, next) => {
   if (to.path == '/login') return next();
   const tokenStr = window.sessionStorage.getItem('loginToken');

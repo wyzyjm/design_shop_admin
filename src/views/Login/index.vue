@@ -3,7 +3,7 @@
     <div class="login_box">
       <!-- logo -->
       <div class="logo_box">
-        <img src="@/assets/logo.png" alt="logo" />
+        <img src="@/assets/ResourcePlatform.png" alt="logo" />
       </div>
       <!-- form -->
       <el-form class="login_form" ref="loginFormRef" :model="loginForm" :rules="loginRules">
@@ -36,18 +36,18 @@ export default {
     return {
       // 表单数据
       loginForm: {
-        username: 'admin',
-        password: '123456',
+        username: "admin",
+        password: "123456",
       },
       // 验证规则
       loginRules: {
         username: [
-          { required: true, message: '请输入用户名', trigger: 'blur' },
-          { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' },
+          { required: true, message: "请输入用户名", trigger: "blur" },
+          { min: 3, max: 5, message: "长度在 3 到 5 个字符", trigger: "blur" },
         ],
         password: [
-          { required: true, message: '请输入密码', trigger: 'blur' },
-          { min: 3, max: 6, message: '长度在 3 到 6 个字符', trigger: 'blur' },
+          { required: true, message: "请输入密码", trigger: "blur" },
+          { min: 3, max: 6, message: "长度在 3 到 6 个字符", trigger: "blur" },
         ],
       },
     }
@@ -63,15 +63,15 @@ export default {
         // console.log(valid); // 验证是否通过
         // console.log(no); // 不通过时的对象
         if (!valid) return
-        let { data: res } = await this.$http.post('login', this.loginForm)
+        let { data: res } = await this.$http.post("login", this.loginForm)
         console.log(res)
         if (res.meta.status !== 200) return this.$msg.error(res.meta.msg)
         this.$msg.success(res.meta.msg) // 登录成功
 
         // 1. 保存token
         // 2. 编程式导航,跳转主页
-        window.sessionStorage.setItem('loginToken', res.data.token)
-        this.$router.push('/home')
+        window.sessionStorage.setItem("loginToken", res.data.token)
+        this.$router.push("/home")
       })
     },
   },
@@ -87,26 +87,18 @@ export default {
   align-items: center;
   .login_box {
     position: relative;
-    width: 450px;
-    height: 300px;
+    width: 300px;
+    height: 200px;
     border-radius: 3px;
     background: #fff;
     .logo_box {
       position: absolute;
       left: 50%;
-      width: 130px;
-      height: 130px;
-      border: 1px solid #eee;
-      border-radius: 50%;
-      padding: 10px;
-      box-shadow: 0 0 10px #ddd;
-      background-color: #fff;
+      box-shadow: 0 0 0 #ddd;
       transform: translate(-50%, -50%);
       img {
-        width: 100%;
-        height: 100%;
+        padding: 10px;
         background-color: #eee;
-        border-radius: 50%;
       }
     }
     .login_form {
@@ -120,6 +112,9 @@ export default {
         justify-content: flex-end;
       }
     }
+  }
+  .el-form-item {
+    margin-bottom: 12px;
   }
 }
 </style>

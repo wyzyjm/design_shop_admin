@@ -7,7 +7,13 @@ import router from './router' // 路由
 import './plugins/element.js' // element-UI
 
 import Axios from 'axios'
+
 Axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+// 请求拦截器
+Axios.interceptors.request.use(config => {
+  config.headers.Authorization = window.sessionStorage.getItem('loginToken');
+  return config;
+})
 Vue.prototype.$http = Axios;
 
 

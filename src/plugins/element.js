@@ -8,6 +8,10 @@ import {
   Container,
   Header,
   Aside,
+  Main,
+  Menu,
+  Submenu,
+  MenuItem,
 } from 'element-ui'
 
 Vue.use(Button)
@@ -19,6 +23,11 @@ Vue.use(Input)
 Vue.use(Container)
 Vue.use(Header)
 Vue.use(Aside)
+Vue.use(Main)
+// 导航
+Vue.use(Menu)
+Vue.use(Submenu)
+Vue.use(MenuItem)
 
 
 Vue.prototype.$msg = Message
