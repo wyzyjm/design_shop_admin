@@ -64,7 +64,7 @@ export default {
         // console.log(no); // 不通过时的对象
         if (!valid) return
         let { data: res } = await this.$http.post("login", this.loginForm)
-        console.log(res)
+        // console.log(res)
         if (res.meta.status !== 200) return this.$msg.error(res.meta.msg)
         this.$msg.success(res.meta.msg) // 登录成功
 

@@ -12,6 +12,18 @@ import {
   Menu,
   Submenu,
   MenuItem,
+  Breadcrumb,
+  BreadcrumbItem,
+  Card,
+  Row,
+  Col,
+  Table,
+  TableColumn,
+  Switch,
+  Tooltip,
+  Pagination,
+  Dialog,
+  MessageBox
 } from 'element-ui'
 
 Vue.use(Button)
@@ -28,6 +40,25 @@ Vue.use(Main)
 Vue.use(Menu)
 Vue.use(Submenu)
 Vue.use(MenuItem)
-
+// 面包屑
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
+// 卡片
+Vue.use(Card)
+// 栅格系统
+Vue.use(Row)
+Vue.use(Col)
+// 表格
+Vue.use(Table)
+Vue.use(TableColumn)
+// 开关
+Vue.use(Switch)
+// 提示
+Vue.use(Tooltip)
+// 分页
+Vue.use(Pagination)
+// 对话框
+Vue.use(Dialog)
 
 Vue.prototype.$msg = Message
+Vue.prototype.$msgBox = MessageBox
