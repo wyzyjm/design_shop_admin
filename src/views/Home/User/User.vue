@@ -55,7 +55,12 @@
             ></el-button>
             <!-- 分配角色 -->
             <el-tooltip effect="dark" :enterable="false" content="分配角色" placement="top">
-              <el-button type="warning" icon="el-icon-setting" size="mini"></el-button>
+              <el-button
+                type="warning"
+                icon="el-icon-setting"
+                size="mini"
+                @click="showRoleFn(scope.row)"
+              ></el-button>
             </el-tooltip>
           </template>
         </el-table-column>
@@ -122,6 +127,32 @@
       <span slot="footer" class="dialog-footer">
         <el-button @click="EditDialogVisible = false">取 消</el-button>
         <el-button type="primary" @click="eidtUserFn(editForm.id)">确 定</el-button>
+      </span>
+    </el-dialog>
+
+    <!-- 分配角色 对话框 -->
+    <el-dialog
+      title="分配角色"
+      :visible.sync="setRoleDialogVisible"
+      width="50%"
+      @close="setRoleDialogClose"
+    >
+      <div>
+        <p>当前用户 : {{userInfo.username}}</p>
+        <p>当前角色 : {{userInfo.role_name}}</p>
+        <el-select v-model="slectValue" placeholder="请选择">
+          <el-option
+            v-for="item in rolesList"
+            :key="item.id"
+            :label="item.roleName"
+            :value="item.id"
+          ></el-option>
+        </el-select>
+      </div>
+      <!-- 底部区 -->
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="setRoleDialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="setRoleFn">确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -207,6 +238,11 @@ export default {
           { required: true, validator: checkEmail, tigger: "blur" },
         ],
       },
+      // 分配角色
+      setRoleDialogVisible: false, // 对话框展示
+      userInfo: {}, // 当前分配角色信息
+      rolesList: [], // 角色列表
+      slectValue: "", // 记录选中的角色
     }
   },
   created() {
@@ -303,6 +339,37 @@ export default {
       if (res2.meta.status !== 200) return this.$msg.error(res2.meta.msg)
       this.$msg.success(res2.meta.msg)
       this.getUserList()
+    },
+
+    // 监听分配角色 对话框关闭事件
+    setRoleDialogClose() {
+      this.slectValue = ""
+      this.userInfo = {}
+    },
+    // 分配角色 显示对话框
+    async showRoleFn(roleInfo) {
+      this.userInfo = roleInfo // 保存当前用户信息
+      // 展示对话框之前获取所有 角色数据
+      const { data: res } = await this.$http.get("roles")
+      if (res.meta.status !== 200) return this.$msg.error(res.meta.msg)
+      this.rolesList = res.data
+      console.log(this.rolesList)
+      this.setRoleDialogVisible = true
+    },
+    async setRoleFn() {
+      if (!this.slectValue) return this.$msg.error("请选择角色")
+      const { data: res } = await this.$http.put(
+        `users/${this.userInfo.id}/role`,
+        {
+          rid: this.slectValue,
+        }
+      )
+      console.log(res)
+      if (res.meta.status !== 200) return this.$msg.error(res.meta.msg)
+
+      this.getUserList()
+      this.$msg.success(res.meta.msg)
+      this.setRoleDialogVisible = false
     },
   },
 }
