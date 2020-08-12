@@ -1,4 +1,7 @@
 import Vue from 'vue'
+
+
+
 import {
   Button,
   Form,
@@ -27,7 +30,8 @@ import {
   Tag,
   Tree,
   Select,
-  Option
+  Option,
+  Cascader
 } from 'element-ui'
 
 Vue.use(Button)
@@ -70,6 +74,8 @@ Vue.use(Tree)
 // 下拉选择
 Vue.use(Select)
 Vue.use(Option)
+// 级联选择器
+Vue.use(Cascader)
 
 
 Vue.prototype.$msg = Message

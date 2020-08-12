@@ -4,7 +4,13 @@ import App from './App.vue'
 import less from 'less';
 import '@/assets/css/globle.css'
 import router from './router' // 路由
-import './plugins/element.js' // element-UI
+import '@/plugins/element.js' // element-UI
+import '@/plugins/treeTable.js' // tree-table
+
+
+
+
+
 
 import Axios from 'axios'
 

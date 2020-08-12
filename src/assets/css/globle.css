@@ -14,3 +14,11 @@ body,
 .el-container {
     overflow: auto;
 }
+
+.zk-table {
+    margin: 15px 0;
+}
+
+.el-cascader-menu {
+    height: 300px;
+}
