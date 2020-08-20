@@ -47,7 +47,6 @@
         :total="total"
       ></el-pagination>
     </el-card>
-
     <!-- 添加分类弹窗 -->
     <el-dialog
       title="添加分类"
@@ -157,7 +156,7 @@ export default {
       const { data: res } = await this.$http.get("categories", {
         params: this.queryInfo,
       })
-      console.log(res)
+      // console.log(res)
       if (res.meta.status !== 200) return this.$msg.error(res.meta.msg)
       this.$msg.success(res.meta.msg)
       this.total = res.data.total // 商品分类总数
@@ -187,7 +186,7 @@ export default {
       })
       if (res.meta.status !== 200) return this.$msg.error(res.meta.msg)
       this.parentCate = res.data
-      console.log(this.parentCate)
+      // console.log(this.parentCate)
     },
 
     // 级联选择器变化

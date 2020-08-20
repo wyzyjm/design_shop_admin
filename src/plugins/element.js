@@ -31,7 +31,10 @@ import {
   Tree,
   Select,
   Option,
-  Cascader
+  Cascader,
+  Alert,
+  Tabs,
+  TabPane,
 } from 'element-ui'
 
 Vue.use(Button)
@@ -76,6 +79,12 @@ Vue.use(Select)
 Vue.use(Option)
 // 级联选择器
 Vue.use(Cascader)
+// 弹窗
+Vue.use(Alert)
+// tab切换
+Vue.use(Tabs)
+Vue.use(TabPane)
+
 
 
 Vue.prototype.$msg = Message
