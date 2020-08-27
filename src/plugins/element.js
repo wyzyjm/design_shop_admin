@@ -35,6 +35,11 @@ import {
   Alert,
   Tabs,
   TabPane,
+  Step,
+  Steps,
+  Checkbox,
+  CheckboxGroup,
+  Upload
 } from 'element-ui'
 
 Vue.use(Button)
@@ -84,6 +89,15 @@ Vue.use(Alert)
 // tab切换
 Vue.use(Tabs)
 Vue.use(TabPane)
+// 进度条
+Vue.use(Step)
+Vue.use(Steps)
+// 复选框
+Vue.use(Checkbox)
+Vue.use(CheckboxGroup)
+// 文件上传
+Vue.use(Upload)
+
 
 
 

@@ -38,6 +38,11 @@ const routes = [
         path: '/goods',
         component: () => import('@/views/Home/Shop/List.vue')
       },
+      // 添加商品
+      {
+        path: '/goods/add',
+        component: () => import('@/views/Home/Shop/AddGoods.vue')
+      },
       // 参数
       {
         path: '/params',
